@@ -9,7 +9,7 @@ load_dotenv()
 def get_weather() -> None:
     print("Performing request to Weather API for city Paris ...")
     url = f"https://api.weatherapi.com/v1/current.json?key={os.getenv('API_KEY')}&q=Paris&aqi=yes"
-    response = requests.post(url).json()
+    response = requests.get(url).json()
     city = response["location"]["name"]
     country = response["location"]["country"]
     time_date = response["location"]["localtime"]
